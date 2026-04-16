@@ -104,9 +104,19 @@ export async function POST(req: NextRequest) {
             }
         }
 
+        return NextResponse.json (
+            response, {status:201}
+        )
 
 
-    } catch (error) {
-        
+
+    } catch (error:any) {
+        return NextResponse.json(
+            {
+                success: false,
+                message: error.message || "Signup failed",
+            },
+            { status: 500 }
+        )
     }
 }
