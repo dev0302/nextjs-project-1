@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
 import bcrypt from "bcrypt"
 
-import User from "@/src/app/models/User"
-import OTP from "@/src/app/models/OTP"
-import dbConnect from "@/src/app/lib/dbConnect"
-// import Profile from "@/src/app/models/Profile"
+import User from "@/app/models/User"
+import OTP from "@/app/models/OTP"
+import dbConnect from "@/app/lib/dbConnect"
+// import Profile from "@/app/models/Profile"
 
 interface SignupBody {
   username: string

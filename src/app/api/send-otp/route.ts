@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 import otpGenerator from "otp-generator"
 
-import User from "@/src/app/models/User"
-import OTP from "@/src/app/models/OTP"
-import dbConnect from "@/src/app/lib/dbConnect"
+import User from "@/app/models/User"
+import OTP from "@/app/models/OTP"
+import dbConnect from "@/app/lib/dbConnect"
 
 export async function POST(req: NextRequest) {
+  console.log("inside send otp route");
+  
   try {
     await dbConnect()
 

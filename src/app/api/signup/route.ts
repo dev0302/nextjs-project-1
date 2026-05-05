@@ -1,12 +1,12 @@
 // this is a singup route, ie from here singup will be done.
 
-import dbConnect from "@/src/app/lib/dbConnect";
-import OTP from "@/src/app/models/OTP";
-import User from "@/src/app/models/User";
-import { ApiResponse } from "@/src/app/types/ApiResponse";
+import dbConnect from "@/app/lib/dbConnect";
+import OTP from "@/app/models/OTP";
+import User from "@/app/models/User";
+import { ApiResponse } from "@/app/types/ApiResponse";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import { SafeUser } from "@/src/app/types/user";
+import { SafeUser } from "@/app/types/user";
 
 // 3. initially writing how the singupbody, ie data which will come from frontend should be
 interface SignupBody {

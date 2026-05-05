@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose"
 import mailSender from "../lib/mailSender"
-import otpTemplate from "@/src/templates/otpTemplate"
+import otpTemplate from "@/templates/otpTemplate"
 
 export interface IOTP extends Document {
   email: string

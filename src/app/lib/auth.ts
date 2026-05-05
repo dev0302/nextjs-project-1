@@ -127,7 +127,7 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 
 
-    // pages: {
-    //     signIn: '/signin', // If you want a custom login page instead of the default one
-    // }
+    pages: {
+        // signIn: '/signin', // If you want a custom login page instead of the default one
+    }
 }
