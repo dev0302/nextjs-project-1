@@ -53,17 +53,24 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
                         throw new Error("User not found");
                     }
 
+                    console.log("beofre checiing pass");
+                    
+
                     // now check for password using bcrypt
                     if(await bcrypt.compare(password, user.password)){
                         return user;
 
                     } else {
+                        console.log("in else part");
+                        
                         throw new Error("Invalid password");
                     }
 
                     
-                } catch (error) {
-                    throw new Error("Authentication Failed");
+                } catch (error: any) {
+                    console.log("inside catch");
+                    
+                    throw new Error(error.message); // ✅ preserve message
                 }
 
             },
@@ -128,6 +135,6 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
 
 
     pages: {
-        // signIn: '/signin', // If you want a custom login page instead of the default one
+        signIn: '/signin', // If you want a custom login page instead of the default one
     }
 }

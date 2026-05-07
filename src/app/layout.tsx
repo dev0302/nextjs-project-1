@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "../context/AuthProvider";
+import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/navbar/Navbar";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +30,13 @@ export default function RootLayout({
     <html lang="en" className="dark" >
 
       {/* on continuation to the file made in context/AuthProvider.tsx */}
-      <AuthProvider> 
-        <body className="min-h-full flex flex-col">{children}</body>
-      </AuthProvider>
+        <body className="min-h-full flex flex-col pt-10 bg-i-black ">
+          <AuthProvider> 
+            <Navbar></Navbar>
+          {children}
+          <Toaster />
+          </AuthProvider>
+        </body>
       
     </html>
   );

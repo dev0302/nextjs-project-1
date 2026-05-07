@@ -39,10 +39,12 @@ export async function POST(req: NextRequest) {
         const userId = user?._id;
 
         // not let frontend will also be sending some flag that is "acceptMessage" either if will be true or false., let's fetch it first.
-        const {acceptMessage} = await req.json();
+        const body = await req.json();
+        const {acceptMessage} = body;
 
         // validating using its schema
-        const result = acceptMessageSchema.safeParse(acceptMessage);
+        // safe parse body not acceptMessage
+        const result = acceptMessageSchema.safeParse(body);
 
         if (!result.success) {
             return NextResponse.json({
@@ -78,6 +80,9 @@ export async function POST(req: NextRequest) {
 
 
     } catch (error) {
+
+        console.log(error);
+        
         
         const response = {
             success: false,

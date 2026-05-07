@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
         // else if not already exists
         const response:ApiResponse = {
             success: true,
-            message: "Username is unique"
+            message: "Username available"
         }
 
         return NextResponse.json(response, {status:200})

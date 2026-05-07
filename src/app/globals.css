@@ -5,6 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  
+  --color-i-black: var(--i-black);
+  --color-i-black2: var(--i-black2);
+  --color-i-black3: var(--i-black3);
+  --color-i-black4: var(--i-black4);
+  --color-i-white: var(--i-white);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -49,6 +56,13 @@
 }
 
 :root {
+
+  --i-black: #1c1c1e;
+  --i-black2: #1f1f1f;
+  --i-black3: #232324;
+  --i-black4: #444444;
+  --i-white: #ededed;
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
