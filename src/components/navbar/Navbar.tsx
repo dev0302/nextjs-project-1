@@ -15,7 +15,7 @@ export default async function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Frosted glass bar */}
-      <div className="mx-auto max-w-[1100px] px-5 my-3">
+      <div className="mx-auto max-w-[1100px] px-5 my-3 i-fonts">
         <nav className="flex items-center justify-between h-11 px-5 rounded-2xl bg-white/[0.06] border border-white/[0.08] backdrop-blur-2xl shadow-[0_2px_24px_rgba(0,0,0,0.4),inset_0_0_0_0.5px_rgba(255,255,255,0.05)]">
 
           {/* Left — Logo */}

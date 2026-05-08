@@ -11,6 +11,7 @@
   --color-i-black3: var(--i-black3);
   --color-i-black4: var(--i-black4);
   --color-i-white: var(--i-white);
+  --color-i-red-light: var(--i-red-light);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -62,6 +63,7 @@
   --i-black3: #232324;
   --i-black4: #444444;
   --i-white: #ededed;
+  --i-red-light: #f76979;
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -141,4 +143,8 @@
   html {
     @apply font-sans;
   }
+}
+
+.i-fonts * {
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
 }
