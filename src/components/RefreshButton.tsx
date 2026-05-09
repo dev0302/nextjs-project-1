@@ -3,10 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import {
-  RefreshCcw,
-  Loader2,
-} from 'lucide-react';
+import { RefreshCcw, Loader2 } from 'lucide-react';
 
 export default function RefreshButton() {
 
@@ -31,20 +28,8 @@ export default function RefreshButton() {
     <button
       onClick={handleRefresh}
       disabled={loading}
-      className="
-        border
-        px-6
-        py-2
-        rounded-md
-        cursor-pointer
-        my-2
-        bg-amber-50/5
-        flex
-        items-center
-        justify-center
-      "
+      className="border px-6 py-2 rounded-md cursor-pointermy-2 bg-amber-50/5 flex items-center justify-center"
     >
-
       {
         loading
           ? (

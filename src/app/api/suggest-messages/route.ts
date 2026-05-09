@@ -26,6 +26,8 @@ export async function GET(req: Request) {
             model: modelName,
             contents: [{ role: 'user', parts: [{ text: prompt }] }],
         });
+        console.log("Responseeeeeeeeee : ");
+        
         console.log(response);
         
 

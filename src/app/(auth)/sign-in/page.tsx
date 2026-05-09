@@ -45,7 +45,10 @@ export default function Page() {
       setError(result.error);
     } else {
         toast.success("Sign in successfull", {position: "top-right"});
-      router.push("/dashboard");
+        router.push("/dashboard");
+        router.refresh(); // refresh server components/session
+        // this is because after login, navbar dubara update hopaye
+
     }
   };
 
@@ -63,7 +66,7 @@ export default function Page() {
 
   return (
     <div className="signup-page relative min-h-screen bg-black flex items-center justify-center px-4 py-10 overflow-hidden">
-      <div className="signup-card relative z-10 w-full max-w-[388px] bg-white/[0.04] border border-white/[0.08] rounded-[22px] px-10 py-11 backdrop-blur-[48px] shadow-[0_40px_80px_rgba(0,0,0,0.7),0_12px_32px_rgba(0,0,0,0.5),inset_0_0_0_0.5px_rgba(255,255,255,0.04)]">
+      <div className="signup-card relative z-10 w-full max-w-[388px] bg-white/[0.04] border border-white/[0.08] rounded-[22px] px-10 py-11 backdrop-blur-[48px] shadow-[0_40px_80px_rgba(0,0,0,0.7),0_12px_32px_rgba(0,0,0,0.5),inset_0_0_0_0.5px_rgba(255,255,255,0.04)] mt-10">
 
         {/* Apple logo */}
         <div className="signup-logo flex justify-center mb-7 opacity-0">

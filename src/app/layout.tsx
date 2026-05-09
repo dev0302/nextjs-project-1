@@ -30,10 +30,12 @@ export default function RootLayout({
     <html lang="en" className="dark" >
 
       {/* on continuation to the file made in context/AuthProvider.tsx */}
-        <body className="min-h-full flex flex-col pt-10 bg-i-black ">
+      {/* ${geistSans.variable} ${geistMono.variable} --> agar ye missing hue to font-sans, font-serif etc kuch apply nhi hoga pages pe */} 
+        <body className={`min-h-full flex flex-col bg-i-black ${geistSans.variable}
+          ${geistMono.variable}`} >
           <AuthProvider> 
             <Navbar></Navbar>
-          {children}
+            {children}
           <Toaster />
           </AuthProvider>
         </body>

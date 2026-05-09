@@ -16,7 +16,7 @@ export default async function MessageCard() {
   const messages = data.messages ?? [];
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="max-w-7xl mx-auto px-6 py-2">
       {/* your CopyLink, MessageToggle etc above */}
       <MessageGrid initialMessages={messages} />
     </div>

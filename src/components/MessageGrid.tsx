@@ -2,7 +2,9 @@
 
 import { useState, useCallback } from "react";
 import { EmailClientCard } from "@/components/email-client-card";
-import { RefreshCw } from "lucide-react";
+// import { RefreshCw } from "lucide-react";
+import { RefreshCcw, Loader2 } from 'lucide-react';
+
 
 interface Message {
   _id: string;
@@ -17,10 +19,13 @@ interface Props {
 export default function MessageGrid({ initialMessages }: Props) {
   const [messages, setMessages] = useState(initialMessages);
   const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set());
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  // const [isRefreshing, setIsRefreshing] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleRefresh = useCallback(async () => {
-    setIsRefreshing(true);
+
+    setLoading(true);
+
     try {
       const res = await fetch("/api/get-messages", { cache: "no-store" });
       const data = await res.json();
@@ -28,7 +33,12 @@ export default function MessageGrid({ initialMessages }: Props) {
     } catch {
       // silently fail
     } finally {
-      setIsRefreshing(false);
+
+      // small delay so spinner is visible
+      setTimeout(() => {
+        setLoading(false);
+      }, 800);
+
     }
   }, []);
 
@@ -45,7 +55,25 @@ export default function MessageGrid({ initialMessages }: Props) {
   };
 
   return (
+    
     <div className="flex flex-col gap-6">
+
+      <button
+            onClick={handleRefresh}
+            disabled={loading}
+            className="border px-6 py-2 rounded-md cursor-pointermy-2 bg-amber-50/5 flex items-center justify-center w-fit"
+          >
+            {
+              loading
+                ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  )
+                : (
+                    <RefreshCcw className="w-4 h-4" />
+                  )
+            }
+      
+          </button>
 
       {/* Header with refresh */}
       <div className="flex items-center justify-between">
@@ -57,14 +85,14 @@ export default function MessageGrid({ initialMessages }: Props) {
             </span>
           )}
         </h2>
-        <button
+        {/* <button
           onClick={handleRefresh}
           disabled={isRefreshing}
           className="flex items-center gap-1.5 h-8 px-3 rounded-lg text-[12.5px] font-medium text-white/40 hover:text-white/70 hover:bg-white/[0.06] border border-transparent hover:border-white/[0.08] transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
           {isRefreshing ? "Refreshing…" : "Refresh"}
-        </button>
+        </button> */}
       </div>
 
       {/* Empty state */}
