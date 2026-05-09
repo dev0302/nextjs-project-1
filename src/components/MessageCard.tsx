@@ -5,7 +5,7 @@ export default async function MessageCard() {
 
   const cookieStore = await cookies();
 
-  const response = await fetch("http://localhost:3000/api/get-messages", {
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/get-messages`, {
     cache: "no-store",
     headers: {
       Cookie: cookieStore.toString(),

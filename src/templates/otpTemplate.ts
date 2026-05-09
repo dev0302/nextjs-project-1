@@ -1,6 +1,6 @@
 const otpTemplate = (otp: string) => {
   const clientUrl =
-    process.env.CLIENT_URL ||
+    process.env.NEXT_PUBLIC_BASE_URL ||
     "https://your-default-url.com"
 
   return `
