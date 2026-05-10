@@ -12,6 +12,8 @@ export default async function MessageCard() {
     },
   });
 
+  // await new Promise((resolve) => setTimeout(resolve, 4000));
+
   const data = await response.json();
   const messages = data.messages ?? [];
 

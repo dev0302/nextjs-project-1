@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Figtree, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "../context/AuthProvider";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar/Navbar";
 
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-figtree",
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +38,7 @@ export default function RootLayout({
       {/* on continuation to the file made in context/AuthProvider.tsx */}
       {/* ${geistSans.variable} ${geistMono.variable} --> agar ye missing hue to font-sans, font-serif etc kuch apply nhi hoga pages pe */} 
         <body className={`min-h-full flex flex-col bg-i-black ${geistSans.variable}
-          ${geistMono.variable}`} >
+          ${geistMono.variable} ${figtree.variable}`} >
           <AuthProvider> 
             <Navbar></Navbar>
             {children}

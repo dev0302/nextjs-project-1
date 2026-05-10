@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap'); */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -148,5 +148,5 @@
 }
 
 .i-fonts {
-  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
 }
