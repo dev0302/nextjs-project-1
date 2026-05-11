@@ -28,6 +28,18 @@
 .signup-footer  { animation: fade-down 0.4s 0.38s ease both; }
 .signup-divider { animation: fade-down 0.4s 0.35s ease both; }
 
+.animation-1 { animation: fade-down 0.4s 0.05s ease both; }
+.animation-2 { animation: fade-down 0.4s 0.10s ease both; }
+.animation-3 { animation: fade-down 0.4s 0.14s ease both; }
+
+.animation-4 { animation: fade-down 0.4s 0.18s ease both; }
+.animation-5 { animation: fade-down 0.4s 0.22s ease both; }
+.animation-6 { animation: fade-down 0.4s 0.26s ease both; }
+
+.animation-7 { animation: fade-down 0.4s 0.30s ease both; }
+.animation-8 { animation: fade-down 0.4s 0.35s ease both; }
+.animation-9 { animation: fade-down 0.4s 0.38s ease both; }
+
 @keyframes fade-down {
   from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -15,14 +15,14 @@ export async function middleware(request: NextRequest) {
 
     // If user is NOT logged in and trying to access protected pages
     if (!token && url.pathname.startsWith('/dashboard')) {
-        return NextResponse.redirect(new URL('/signin', request.url));
+        return NextResponse.redirect(new URL('/sign-in', request.url));
     }
 
     return NextResponse.next();
 }
 
 export const config = {
-    matcher: ['/api/auth/signin', '/api/auth/signup']
+    matcher: ['/sign-in', '/signup', '/dashboard/:path*']
 };
 
 

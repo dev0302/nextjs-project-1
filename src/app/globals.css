@@ -61,11 +61,13 @@
 :root {
 
   --i-black: #1c1c1e;
+  --i--black1: #1d1d1f;
   --i-black2: #1f1f1f;
   --i-black3: #232324;
   --i-black4: #444444;
   --i-white: #ededed;
   --i-red-light: #f76979;
+  --i--blue-button: #0071e3;
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -150,3 +152,4 @@
 .i-fonts {
   font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
 }
+

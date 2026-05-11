@@ -3,12 +3,15 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { Check, Copy } from "lucide-react";
+import { useRouter } from "next/navigation"; //must be of from /navigation
 
 export default function CopyLink() {
   const { data: session } = useSession();
   const [copied, setCopied] = useState(false);
 
   const username = session?.user?.username;
+
+  const router = useRouter();
 
 //   Important Rule :-
 //     Location	Can Access
@@ -56,7 +59,11 @@ export default function CopyLink() {
             rounded-xl overflow-hidden
           "
         >
-          <span className="text-[13px] text-white/40 truncate select-all">
+          <span className="text-[13px] text-white/40 truncate hover:text-blue-300/70 cursor-pointer"
+          onClick={()=>{
+            router.push(`/u/${username}`);
+          }}
+          >
             {username ? profileUrl : "Loading…"}
           </span>
         </div>

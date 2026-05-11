@@ -6,25 +6,25 @@ import { toast } from "sonner";
 import { ApiResponse } from "@/app/types/ApiResponse";
 import { Loader2 } from "lucide-react";
 
-export default function MessageToggle() {
-  const [isAccepting, setIsAccepting] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+export default function MessageToggle({initialIsAccepting}: {initialIsAccepting: boolean}) {
+  const [isAccepting, setIsAccepting] = useState(initialIsAccepting);
+  // const [isLoading, setIsLoading] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  useEffect(() => {
-    const fetchStatus = async () => {
-      try {
-        const res = await axios.get("/api/accept-messages");
-        setIsAccepting(res.data.isAcceptingMessages);
-      } catch (error) {
-        const axiosError = error as AxiosError<ApiResponse>;
-        toast.error(axiosError.response?.data.message ?? "Failed to fetch status");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchStatus();
-  }, []);
+  // useEffect(() => {
+  //   const fetchStatus = async () => {
+  //     try {
+  //       const res = await axios.get("/api/accept-messages");
+  //       setIsAccepting(res.data.isAcceptingMessages);
+  //     } catch (error) {
+  //       const axiosError = error as AxiosError<ApiResponse>;
+  //       toast.error(axiosError.response?.data.message ?? "Failed to fetch status");
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchStatus();
+  // }, []);
 
   const toggle = async () => {
     if (isUpdating) return;
@@ -60,7 +60,7 @@ export default function MessageToggle() {
         <span className="text-[14px] font-semibold text-white/85 tracking-[-0.2px]">
           Incoming Messages
         </span>
-        {isLoading ? (
+        {/* {isLoading ? (
           <span className="text-[12px] text-white/30">Loading…</span>
         ) : (
           <span
@@ -70,13 +70,25 @@ export default function MessageToggle() {
           >
             {isAccepting ? "Accepting messages" : "Paused"}
           </span>
-        )}
+        )} */}
+        <span
+          className={`text-[12px] font-medium transition-colors duration-300 ${
+            isAccepting
+              ? "text-[#32d74b]"
+              : "text-white/30"
+          }`}
+        >
+          {isAccepting
+            ? "Accepting messages"
+            : "Paused"}
+        </span>
       </div>
 
       {/* Toggle switch */}
       <button
         onClick={toggle}
-        disabled={isLoading || isUpdating}
+        // disabled={isLoading || isUpdating}
+        disabled={isUpdating}
         aria-checked={isAccepting}
         role="switch"
         aria-label="Toggle message acceptance"
