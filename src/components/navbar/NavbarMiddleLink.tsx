@@ -12,7 +12,7 @@ export default function NavbarMiddleLink() {
   return (
     <Link
       href={isHome ? "/dashboard" : "/"}
-      className="flex justify-center items-center gap-2 h-7 px-3 rounded-xl bg-white/[0.07] border border-white/[0.09] hover:bg-white/[0.11] transition-all duration-150 group"
+      className=" hidden sm:flex justify-center items-center gap-2 h-7 px-3 rounded-xl bg-white/[0.07] border border-white/[0.09] hover:bg-white/[0.11] transition-all duration-150 group"
     >
       {isHome ? (
         <LayoutDashboard className="w-3.5 h-3.5 text-white/70 group-hover:text-white transition-colors duration-150" />

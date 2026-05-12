@@ -16,7 +16,7 @@ export default async function Page() {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-10/12  px-8 mx-auto flex flex-col pb-32">
+      <div className="relative z-10 w-11/12 sm:w-10/12  px-8 mx-auto flex flex-col pb-32">
 
         {/* ─────────── HERO ─────────── */}
         <section className="mt-28 mb-24 flex flex-col gap-6 max-w-3xl">

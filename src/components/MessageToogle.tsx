@@ -48,7 +48,7 @@ export default function MessageToggle({initialIsAccepting}: {initialIsAccepting:
   return (
     <div
       className="
-        inline-flex items-center gap-4 w-[30%] h-full
+        inline-flex items-center gap-4  sm:w-[30%] h-full
         bg-white/[0.04] border border-white/[0.08]
         rounded-2xl px-5 py-4
         backdrop-blur-xl

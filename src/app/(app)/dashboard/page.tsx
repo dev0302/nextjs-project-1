@@ -40,7 +40,7 @@ export default async function Dashboard() {
         User Dashboard
       </div>
 
-      <div className="my-4 flex gap-2 w-full">
+      <div className="my-4 flex gap-2 w-full sm:flex-row flex-col">
 
         <MessageToggle
           initialIsAccepting={

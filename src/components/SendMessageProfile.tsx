@@ -50,7 +50,7 @@ export default function SendMessageProfile({username}: { username: string;}) {
           success: false,
           message: "",
         });
-      }, 4000);
+      }, 400000);
       return;
     }
 
@@ -155,7 +155,7 @@ export default function SendMessageProfile({username}: { username: string;}) {
               className="animation-2 w-10/12 rounded-lg border border-gray-400/60 h-16 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-i-black4"
             />
 
-            <p className={` absolute bottom-[-25px] right-44 ml-2 text-[12px] tracking-[0.5px] min-h-[18px]  duration-200  transition-all duration-300 ease-out ${
+            <p className={` absolute bottom-[-25px] right-15 sm:bottom-[-25px] sm:right-44 ml-2 text-[12px] tracking-[0.5px] min-h-[18px]  duration-200  transition-all duration-300 ease-out ${
               sendResponse?.message
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-2"
@@ -213,7 +213,7 @@ export default function SendMessageProfile({username}: { username: string;}) {
           {/* heading */}
           <p className="animation-5  ml-2 text-i-white/90">Click on any message below to select it.</p>
 
-          <div className = "animation-6 flex flex-col gap-3 bg-white/4 border border-white/8 rounded-2xl px-5 py-4 backdrop-blur-xl shadow-[0_2px_16px_rgba(0,0,0,0.3),inset_0_0_0_0.5px_rgba(255,255,255,0.04)] w-11/12">
+          <div className = "animation-6 flex flex-col gap-3 bg-white/4 border border-white/8 rounded-2xl px-5 py-4 backdrop-blur-xl shadow-[0_2px_16px_rgba(0,0,0,0.3),inset_0_0_0_0.5px_rgba(255,255,255,0.04)] w-12/12 sm:w-11/12">
 
               <span className="text-[15px] font-semibold text-white/70 tracking-[-0.2px]">
                 Messages
@@ -227,7 +227,7 @@ export default function SendMessageProfile({username}: { username: string;}) {
                     suggestions.map((suggestion,index) => {
                       
                       return ( 
-                        <span key={index} className="text-[13px] py-2  text-white/40 truncate bg-white/5 border border-white/8 rounded-xl px-3.5 w-11/12 cursor-pointer hover:bg-white/10 transition-all duration-200 ease-in"
+                        <span key={index} className="text-[13px] py-2  text-white/40 truncate bg-white/5 border border-white/8 rounded-xl px-3.5 w-12/12 sm:w-11/12 cursor-pointer hover:bg-white/10 transition-all duration-200 ease-in"
                         onClick={()=>onSelectSuggestion(suggestion)}
                         >
                           {suggestion}
