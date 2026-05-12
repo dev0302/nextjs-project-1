@@ -53,7 +53,7 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
                         throw new Error("User not found");
                     }
 
-                    console.log("beofre checiing pass");
+                    // console.log("beofre checiing pass");
                     
 
                     // now check for password using bcrypt
@@ -61,14 +61,14 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
                         return user;
 
                     } else {
-                        console.log("in else part");
+                        // console.log("in else part");
                         
                         throw new Error("Invalid password");
                     }
 
                     
                 } catch (error: any) {
-                    console.log("inside catch");
+                    // console.log("inside catch");
                     
                     throw new Error(error.message); // ✅ preserve message
                 }
@@ -123,6 +123,23 @@ export const NEXT_AUTH_CONFIG: AuthOptions = {
             
             return session;
         }
+
+        // Why TypeScript Doesn't Allow It Normally
+        // NextAuth ships with its own built-in types. When you install it, it comes with type definitions that say:
+        // what NextAuth defines internally (simplified)
+        // interface User {
+        // name?: string;
+        // email?: string;
+        // image?: string;
+        // // that's it — nothing else
+        // }
+        // same for session
+
+        // So when you try to do this in your callbacks:
+        // token._id = user.id;           // ❌ TypeScript error
+        // token.isVerified = true;       // ❌ TypeScript error
+        // session.user.username = "john" // ❌ TypeScript error
+        // TypeScript looks at its definition of JWT and Session — those fields don't exist there — so it refuses to compile. It's protecting you from accessing properties that don't exist on the type.
     },
 
     // now session, ie. How NextAuth stores and manages logged-in user session (by default if no database adabter connected -> jwt)

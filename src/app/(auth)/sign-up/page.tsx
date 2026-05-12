@@ -94,6 +94,7 @@ export default function Page() {
       await axios.post("/api/send-otp", { email: data.email });
 
       // Store all 3 fields securely in sessionStorage for use on verify page
+      // It Only stores strings — that's why you use JSON.stringify/parse for objects.
       sessionStorage.setItem(
         "signup_pending",
         JSON.stringify({

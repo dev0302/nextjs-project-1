@@ -7,6 +7,7 @@ import NavbarUserMenu from "./NavbarUserMenu";
 import Link from "next/link";
 import { NEXT_AUTH_CONFIG } from "@/app/lib/auth";
 import NavbarAuthButtons from "./NavbarAuthButtons";
+import NavbarMiddleLink from "./NavbarMiddleLink";
 
 export default async function Navbar() {
   // Runs on server — no useSession, no client JS
@@ -35,6 +36,11 @@ export default async function Navbar() {
               Nextjs Project
             </span>
           </Link>
+
+          <NavbarMiddleLink></NavbarMiddleLink>
+          
+        
+  
 
           {/* Right — server decides which component to render */}
           {session?.user ? (
