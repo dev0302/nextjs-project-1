@@ -14,7 +14,7 @@ export default function NavbarAuthButtons() {
       </Link>
       <Link
         href="/sign-up"
-        className="h-8 px-4 flex items-center text-[13px] font-semibold text-black bg-white rounded-lg hover:bg-white/90 active:scale-[0.97] transition-all duration-150"
+        className="h-7 px-4 flex items-center text-[13px] font-semibold text-black bg-i-white rounded-lg hover:bg-white active:scale-[0.97] transition-all duration-150"
       >
         Sign up
       </Link>
