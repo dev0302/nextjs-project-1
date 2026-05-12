@@ -127,23 +127,7 @@ const otpTemplate = (otp: string) => {
                     you can safely ignore this email.
                   </p>
 
-                  <!-- Button -->
-                  <a
-                    href="${clientUrl}"
-                    style="
-                      display: inline-block;
-                      margin-top: 28px;
-                      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                      color: #ffffff;
-                      text-decoration: none;
-                      padding: 14px 28px;
-                      border-radius: 12px;
-                      font-size: 15px;
-                      font-weight: 600;
-                    "
-                  >
-                    Visit App
-                  </a>
+                  
                 </td>
               </tr>
 
