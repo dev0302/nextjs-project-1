@@ -59,7 +59,8 @@ export default function Page() {
       });
 
       // Clear session data after successful signup
-      sessionStorage.removeItem("signup_pending");
+      // sessionStorage.removeItem("signup_pending");
+      // not removing it now beacuse now what i want is ki when singin pages opens after it, the email and pass should be prefilled.
 
       toast.success(response.data.message);
       router.push("/sign-in");

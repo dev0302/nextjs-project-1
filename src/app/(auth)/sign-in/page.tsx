@@ -1,7 +1,7 @@
 "use client";
 
 import "../sign-up/sign-up.css" // adjust path if needed
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -63,6 +63,25 @@ export default function Page() {
         ? "border border-red-500/50 focus-visible:border-red-500/60"
         : "border border-white/10 hover:border-white/15 focus-visible:border-white/25",
     ].join(" ");
+
+
+    // auto fill email and pass from signup through sessionStorage
+    useEffect(() => {
+
+        const storedData = sessionStorage.getItem("signup_pending");
+
+        if (storedData) {
+
+          const parsedData = JSON.parse(storedData);
+
+          setEmail(parsedData.email || "none");
+          setPassword(parsedData.password || "none");
+
+          // optional
+          sessionStorage.removeItem("signup_pending");
+        }
+
+      }, []);
 
   return (
     <div className="signup-page relative min-h-screen bg-black flex items-center justify-center px-4 py-10 overflow-hidden">
