@@ -19,7 +19,7 @@ export default async function Page() {
       <div className="relative z-10 w-11/12 sm:w-10/12  px-8 mx-auto flex flex-col pb-32">
 
         {/* ─────────── HERO ─────────── */}
-        <section className="mt-28 mb-24 flex flex-col gap-6 max-w-3xl">
+        <section className="mt-28 mb-14 sm:mb-24 flex flex-col gap-6 max-w-3xl">
 
           {/* headline */}
           <h1
@@ -72,7 +72,7 @@ export default async function Page() {
         </section>
 
         {/* ─────────── DIVIDER ─────────── */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-24" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-14 sm:mb-24" />
 
         {/* ─────────── WHY I BUILT THIS ─────────── */}
         <section className="mb-24 flex flex-col md:flex-row gap-8 items-start">
