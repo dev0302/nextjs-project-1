@@ -1,4 +1,5 @@
 "use client";
+// since it is client component and use effect being used in this component to fetch data. so, loading.tsx wil not work need to use loader internally here
 
 import "../sign-up/sign-up.css"; // adjust path based on your folder structure
 import { useEffect, useState } from "react";
@@ -17,12 +18,17 @@ export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [maskedEmail, setMaskedEmail] = useState("");
   const [isResending, setIsResending] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   // On mount, check sessionStorage has the pending signup data
   useEffect(() => {
+    
     const raw = sessionStorage.getItem("signup_pending");
+    
     if (!raw) {
+      setLoading(false)
+
       // No data found — user navigated here directly, send back
       toast.error("Session expired. Please sign up again.");
       router.replace("/sign-up");
@@ -32,6 +38,8 @@ export default function Page() {
     // Mask email: jo**@example.com
     const [user, domain] = email.split("@");
     setMaskedEmail(`${user.slice(0, 2)}**@${domain}`);
+    
+    setLoading(false)
   }, [router]);
 
   const onCreateAccount = async () => {
@@ -93,6 +101,14 @@ export default function Page() {
       setIsResending(false);
     }
   };
+
+  if(loading) {
+     return (
+        <div className="i-fonts w-10/12 mx-auto mt-5 flex flex-col items-center justify-center h-[calc(100vh-60px)]">
+            <Loader2 className="w-6 h-6 animate-spin mr-0"></Loader2>
+        </div>
+      )
+  }
 
   return (
     <div className="signup-page relative min-h-screen bg-black flex items-center justify-center px-4 py-10 overflow-hidden">

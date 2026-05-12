@@ -74,8 +74,8 @@ export default function Page() {
 
           const parsedData = JSON.parse(storedData);
 
-          setEmail(parsedData.email || "none");
-          setPassword(parsedData.password || "none");
+          setEmail(parsedData.email || "");
+          setPassword(parsedData.password || "");
 
           // optional
           sessionStorage.removeItem("signup_pending");
