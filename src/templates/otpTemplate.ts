@@ -1,8 +1,16 @@
-const otpTemplate = (otp: string) => {
-  const clientUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    "https://your-default-url.com"
+const BASE_STYLES = {
+  wrapper:
+    "margin:0;padding:0;font-family:Arial,sans-serif;background-color:#020617;",
+  outerTable: "background-color:#020617;padding:40px 0;",
+  card: "background-color:#0f172a;border-radius:8px;border:1px solid #1e293b;",
+  cardCell: "padding:40px 30px;text-align:center;",
+  title: "color:#e5e7eb;margin:0 0 20px 0;font-size:28px;",
+  body: "color:#94a3b8;margin:0 0 30px 0;font-size:14px;line-height:1.7;",
+  box: "background-color:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;margin:30px 0;",
+  footer: "color:#64748b;margin:20px 0 0 0;font-size:12px;line-height:1.6;",
+}
 
+const otpTemplate = (otp: string) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -12,141 +20,93 @@ const otpTemplate = (otp: string) => {
       <title>OTP Verification</title>
     </head>
 
-    <body
-      style="
-        margin: 0;
-        padding: 0;
-        background-color: #f4f7fb;
-        font-family: Arial, sans-serif;
-      "
-    >
+    <body style="${BASE_STYLES.wrapper}">
       <table
         width="100%"
         cellpadding="0"
         cellspacing="0"
-        style="padding: 40px 0"
+        style="${BASE_STYLES.outerTable}"
       >
         <tr>
           <td align="center">
+
             <table
               width="100%"
               cellpadding="0"
               cellspacing="0"
               style="
-                max-width: 520px;
-                background: #ffffff;
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+                ${BASE_STYLES.card};
+                max-width: 600px;
               "
             >
-              <!-- Header -->
               <tr>
-                <td
-                  align="center"
-                  style="
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                    padding: 40px 20px;
-                    color: white;
-                  "
-                >
-                  <h1
-                    style="
-                      margin: 0;
-                      font-size: 28px;
-                      font-weight: 700;
-                    "
-                  >
+                <td style="${BASE_STYLES.cardCell}">
+
+                  <!-- Logo / Brand -->
+                  <div style="margin-bottom:24px;">
+                    <h1
+                      style="
+                        margin:0;
+                        color:#22d3ee;
+                        font-size:20px;
+                        font-weight:bold;
+                        letter-spacing:1px;
+                      "
+                    >
+                      YOUR APP
+                    </h1>
+                  </div>
+
+                  <!-- Title -->
+                  <h1 style="${BASE_STYLES.title}">
                     Verify Your Account
                   </h1>
 
-                  <p
-                    style="
-                      margin-top: 10px;
-                      font-size: 15px;
-                      opacity: 0.9;
-                    "
-                  >
-                    Secure OTP Verification
-                  </p>
-                </td>
-              </tr>
-
-              <!-- Content -->
-              <tr>
-                <td style="padding: 40px 32px; text-align: center">
-                  <h2
-                    style="
-                      margin: 0;
-                      color: #111827;
-                      font-size: 24px;
-                    "
-                  >
-                    Your OTP Code
-                  </h2>
-
-                  <p
-                    style="
-                      margin: 16px 0 28px;
-                      color: #6b7280;
-                      font-size: 15px;
-                      line-height: 1.6;
-                    "
-                  >
-                    Use the verification code below to continue.
-                    This code is valid for
-                    <strong>5 minutes</strong>.
+                  <!-- Description -->
+                  <p style="${BASE_STYLES.body}">
+                    Use the OTP below to continue securely.
+                    This verification code will expire in
+                    <strong style="color:#e5e7eb;">5 minutes</strong>.
                   </p>
 
                   <!-- OTP Box -->
-                  <div
-                    style="
-                      display: inline-block;
-                      background: #f3f4f6;
-                      padding: 18px 32px;
-                      border-radius: 14px;
-                      letter-spacing: 10px;
-                      font-size: 32px;
-                      font-weight: bold;
-                      color: #4f46e5;
-                      border: 2px dashed #c7d2fe;
-                    "
-                  >
-                    ${otp}
+                  <div style="${BASE_STYLES.box}">
+                    <p
+                      style="
+                        color:#e5e7eb;
+                        font-size:36px;
+                        font-weight:bold;
+                        letter-spacing:10px;
+                        margin:0;
+                        font-family:monospace;
+                      "
+                    >
+                      ${otp}
+                    </p>
                   </div>
 
-                  <p
-                    style="
-                      margin-top: 30px;
-                      color: #9ca3af;
-                      font-size: 14px;
-                      line-height: 1.6;
-                    "
-                  >
-                    If you did not request this OTP,
+                  <!-- Footer Note -->
+                  <p style="${BASE_STYLES.footer}">
+                    If you didn’t request this OTP,
                     you can safely ignore this email.
                   </p>
 
-                  
-                </td>
-              </tr>
+                  <!-- Copyright -->
+                  <p
+                    style="
+                      color:#475569;
+                      font-size:12px;
+                      margin-top:32px;
+                    "
+                  >
+                    © ${new Date().getFullYear()} Your App.
+                    All rights reserved.
+                  </p>
 
-              <!-- Footer -->
-              <tr>
-                <td
-                  align="center"
-                  style="
-                    padding: 24px;
-                    background: #f9fafb;
-                    color: #9ca3af;
-                    font-size: 13px;
-                  "
-                >
-                  © ${new Date().getFullYear()} Your App.
-                  All rights reserved.
                 </td>
               </tr>
             </table>
+
           </td>
         </tr>
       </table>
