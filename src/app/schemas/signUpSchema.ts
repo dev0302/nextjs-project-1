@@ -20,9 +20,3 @@ export const signUpSchema = z.object({
 
 // 5. why in 3rd one object is used and why not in 4th?
 // since username schema validation is just for one single thing i.e. username hence no need of object there but in case of singup schema since validation are for more terms ie for an whole object.
-
-// 6. naming of exporting the schema
-// schema variable → verifySchema
-// TypeScript type → VerifySchema
-
-// This keeps runtime and type names distinct.

@@ -51,6 +51,18 @@ const UserSchema: mongoose.Schema<IUser> = new mongoose.Schema ( {
     username: {
         type: String,
         required: [true, 'Username is required'],
+        // try {
+        //     await user.save();
+        // } catch (error) {
+        //     console.log(error.message);
+        // }
+        // console.log(error.errors.username.message);
+
+        // dynamically
+        // for (let field in error.errors) {
+        //   console.log(error.errors[field].message);
+        // }
+        
         trim: true,
         unique: true,
     },

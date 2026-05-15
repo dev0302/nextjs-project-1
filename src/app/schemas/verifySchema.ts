@@ -34,3 +34,10 @@ export const verifySchema = z.object({
 //    → send in API response
 //    → log it
 //    → ignore it
+
+
+// 6. naming of exporting the schema
+// schema variable → verifySchema
+// TypeScript type → VerifySchema
+
+// This keeps runtime and type names distinct.
